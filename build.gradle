@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+jar {
+    from sourceSets.main.output
+    manifest {
+        attributes(
+                'Main-Class': 'org.example.Client'
+        )
+    }
+    destinationDirectory = file("$rootDir")
+}
