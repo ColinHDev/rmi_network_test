@@ -1,11 +1,18 @@
 package org.example;
 
+import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.net.UnknownHostException;
 import java.util.Collections;
 
 public class GetNetworkInterfacesIP {
 
     public static void main(String[] args) {
+        try {
+            System.out.println(InetAddress.getLocalHost().getHostAddress());
+            System.out.println(InetAddress.getLocalHost().getHostName());
+        } catch (UnknownHostException e) {
+        }
         try {
             Collections.list(NetworkInterface.getNetworkInterfaces()).forEach(netInterface -> {
                 Collections.list(netInterface.getInetAddresses()).forEach(inetAddress -> {
